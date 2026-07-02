@@ -31,6 +31,9 @@ class Movie:
         text = f'Film Director is {self.data['Director']}. It published in {self.data['Released_Year']}. Main stars are {', '.join(self.get_actor_names())}.'
         return text
 
+
+    
+
 class Actor:
 
     def __init__(self, data):
@@ -117,4 +120,13 @@ class Actor:
 
             return text
 
-        
+
+    def __eq__(self, other):
+        return self.data['Director']  == other.data['Director']
+
+
+    def __lt__(self, other):
+        return self.data['IMDB_Rating'] < other.data['IMDB_Rating']
+
+
+    
